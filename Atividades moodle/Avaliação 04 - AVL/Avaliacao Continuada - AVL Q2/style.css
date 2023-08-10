@@ -1,0 +1,18 @@
+.fakebody{
+    text-align: justify;
+    justify-content: center;
+    margin: 10px 25% 10px 25%;
+    box-shadow: 3px 5px 10px black;
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+}
+body{
+    background-color: skyblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.image{
+    width: 350px;
+    box-shadow: 2px 2px 5px black;
+    display: block;
+    margin: 10px 0px 10px 0px;
+}

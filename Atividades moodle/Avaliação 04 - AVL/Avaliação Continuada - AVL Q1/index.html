@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Continuada - AVL Q1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+    <h1>Dê exemplo de uma família de árvores AVL cuja exclusão de nós implica a realização de O(lgn)
+ operações de rotação para o rebalanceamento.</h1>
+    <p>
+        Um exemplo de família de árvores AVL cujo a exclusão de nós implica em O(lgn) seria a família das árvores de Fibonacci.
+        Como visto em sala, essa família de árvores tem o padrão de: T(h)->left = T(h-2) e T(h)->right = T(h-1).
+        <br>
+        <img src="FibonacciTree.jpg" alt="" width="350px">
+    </p>
+    <p>
+        Seguindo este pensamento, observe a árvore T(5) com os F(b) descritos abaixo.
+        <br>
+        <img src="T(5) x.jpg" alt="" width="350px">
+        <br>
+        Por sua vez, removeremos o nó com X. Primeiro, o algoritmo buscará o nó X em O(lgn), após o encontrar, irá deleta-lo. Na volta recursiva o seu pai (nó com P) ficará com seu F(b) = 2, que indicará que é necessário realizar uma rotação a esquerda em P. Resultando na árvore abaixo.
+        <br>
+        <img src="T(5) deletada e rodada.jpg" alt="" width="350px">
+        <br>
+        Após esta rotação, a recursão voltará a raiz desta árvore, que está com seu F(b) = 2 após a rotação que ocorreu. Portanto, a próxima rotação deve ser feita na raiz e também será a esquerda. Segue imagem abaixo.
+        <br>
+        <img src="T(5) final.jpg" alt="" width="350px">
+        <br>
+        Como podemos observar, agora todos os F(b) estão de acordo com o padrão, não há mais nada na pilha de recursão (pois o último nó a ser visto era a raiz que foi recém rotada) e, como a busca de X foi em O(lgn) e se fez necessário rotação em todos os nós até a raiz (que também retornou em O(lgn)) foram realizadas O(lgn) rotações.
+
+    </p>
+</div>
+</body>
+</html>

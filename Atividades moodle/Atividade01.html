@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 01</title>
+</head>
+<body>
+    <h1>Questão 01</h1>
+    <h2>(a) nivel(v)=nivel(w)+1</h2>
+    <p>
+        Pela definição de nível, um filho sempre estará em um nível mais profundo do que seu pai, como mostra a imagem abaixo:
+        <br>
+        <img src="https://www.inf.ufsc.br/~aldo.vw/estruturas/Arvores/arv3.gif" alt="" width="350px" >
+        <!-- Imagem bem aqui -->
+        <br>
+        Observando a imagem fica bem claro que não é verdade que o nível do nó pai é igual ao nível do nó filho+1. O que se tornaria verdade seria o nível do filho ser igual ao nível do pai+1.
+    </p>
+    <h2>(b) altura(v)=altura(w)+1</h2>
+    <p>
+        Pela definição de altura, toda folha sempre terá h=1, desta forma, é possível que seja que um pai tenha vários descendentes pela esquerda e apenas um pela direita.
+        <br>
+        <!-- Imagem bem aqui -->
+        <br>
+        Por exemplo na imagem acima, é possível ver, analisando a subárvore à esquerda, que nem sempre um nó pai terá altura igual a do nó filho+1. Na grande maioria das vezes isso poderá acontecer, mas nem sempre.
+    </p>
+    <h2>(c) $$max_{v \in T}{altura(v)}=max_{v \in T}{nivel(v)}$$</h2>
+    <p>
+        Por definição, a altura de uma árvore binária é a distância da raiz até o nó mais distante e, também por definição, o nível máximo de uma árvore binária também é o caminho da raiz até o último nó, ou seja, o nó mais distante. Portanto, se uma árvore binária tem alturaMax = x, seu nívelMax será = x também.
+    </p>
+
+    <h1>Questão 02</h1>
+    <p>
+        Caso base: n=1
+        <br>
+        Ou seja, quando a árvore tem apenas um nó, sendo ele a própria raiz.
+        <br>
+        (m-1)1+1 ~> m-1+1 ~> m
+        <br><br>
+        Hipótese indutiva: n = n-1
+        <br>
+        Suponha que a fórmula vale para uma árvore com n-1 nós. Portanto:
+        <br>
+        (m-1)(n-1)+1
+        <br><br>
+        Passo indutivo: vamos considerar uma árvore T com n nós e escolher uma de suas folhas para removê-la. Isso nos deixa com uma árvore T' com n-1 nós. Isso significa que T' tem uma subárvore vazia a menos do que T. Porém, ao remover a folha de T, abrimos espaço para criar uma nova subárvore vazia que inclui essa folha como raiz. Essa subárvore vazia pode ser de qualquer tamanho até m-1, já que temos m-1 opções de subárvores que não incluem a folha. Portanto, a árvore T tem (m-1)(n-1)+1 subárvores vazias, menos uma que foi removida ao criar T', mais m subárvores vazias que incluem a folha removida.
+        <br>
+        Portanto: (m - 1)(n - 1) + 1 - 1 + m ~> mn - m - n + 1 - 1 + m ~> mn - n + 1 ~> (m - 1)n + 1
+    </p>
+
+    <h1>Questão 03</h1>
+    <h2>Provar ou dar contraexemplo: Uma árvore binária é completa se e somente se ela possuir altura mínima para um dado número de nós.</h2>
+    <p>Por contraexemplo é simples provar que esse bicondicional é falso. Observe a imagem abaixo:
+        <br>
+        <!-- Imagem bem aqui -->
+        <br>
+        A árvore acima tem alturaMin = 4, por que não há nenhuma forma que possa redistribuir os nós com que fique com altura < 4. E nesse caso especifíco, não temos uma árvore completa, por conta do nó que tem h=3, este nó tem apenas 1 filho e não está no penúltimo ou último nível da árvore.
+
+    </p>
+</body>
+</html>

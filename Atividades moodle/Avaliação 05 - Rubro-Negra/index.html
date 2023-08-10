@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Avaliação 05 - Árvores rubro-negra</title>
+</head>
+<body>
+    <div>
+        <h1>
+            Q1: Qual é o maior número possível de nós internos em uma árvore rubro-negra com altura negra k? Qual é o menor número possível?
+        </h1>
+        <p>
+            Primeiro, provarei que a quantidade máxima de nós internos em uma árvore binária qualquer é 2<sup>h</sup>-1, que por sua vez, se aplica as árvores rubro-negra.
+            <br>
+            Caso base: h = 1. 2<sup>1</sup>-1 = 1. Note que esta árvore é apenas a raiz.
+            <br>
+            Hipótese indutiva: Suponha que para toda árvore qualquer com altura menor que H, a fórmula é válida.
+            <br>
+            Passo indutivo: Suponha uma árvore qualquer com altura H.
+            <br>
+            <img src="imagem 01.jpg" alt="">
+            <br>
+            Note que a subárvore da esquerda e a da direita tem altura h-1 (-1 da raiz), portanto, pela hipótese indutiva, a fórmula é válida. O que leva ao pensamento de que a quantidade máxima de nós internos em uma árvore binária é o somatório de todos os nós internos da subárvore direita e esquerda mais a raiz. Portanto:
+            <br>
+            (2<sup>h-1</sup>-1) + (2<sup>h-1</sup>-1) + 1 <br>
+            2(2<sup>h-1</sup>-1) + 1 <br>
+            2<sup>h</sup>-2+1 <br>
+            2<sup>h</sup>-1
+
+            <br>
+            Definição de altura negra: se há uma árvore com altura negra = k, existem k nós negros desde a raiz até a sua folha mais distante.
+            <br>
+            Propriedade 04 das árvores rubro-negras: se um nó é vermelho, então ambos seus filhos são pretos.
+            <br>
+            Portanto, concluo que a altura mínima de uma árvore rubro-negra é uma árvore formada apenas de nós negros, que por sua vez, implica que a altura = k. Logo, a quantidade mínima de nós internos é: 2<sup>k</sup>-1. (O que também foi provado pelo professor em sala no lema 2).
+            <br>
+            <img src="imagem 02.jpg" alt="">
+            <br>
+            Note que neste slide o professor diz que a quantidade de nós internos será <strong>PELO MENOS</strong> 2<sup>bh(x)</sup>-1. Ou seja, quantidade de nós internos >= 2<sup>bh(x)</sup>-1, o que leva ao pensamento de que no menor caso, será igual.
+            <br>
+            Já para a quantidade máxima de nós internos, basta que coloquemos sempre nós vermelhos entre nós pretos, o que resultaria numa árvore com o dobro da altura ou seja, se uma árvore tem altura negra = k, o máximo de nós possivel nesse caminho seria 2k. Portanto a quantidade máxima de nós internos em uma árvore rubro-negra é 2<sup>2k</sup>-1.
+        </p>
+        <h1>
+            Q2: Suponha que ''absorvemos'' todo nó vermelho em uma árvore rubro-negra em seu pai preto, de modo que os filhos do nó vermelho se tornem filhos do pai preto. (Ignore o que acontece com as chaves.) Quais são os graus possíveis de um nó preto depois que todos os seus filhos vermelhos são absorvidos? O que você pode dizer sobre as profundidades das folhas da árvore resultante? 
+        </h1>
+        <p>
+            <img src="imagem 04.jpg" alt="" width="650px">
+            <br>
+            P.S: Observe que as únicas folhas que podem ter sua profundidade alterada são as folhas que eram descendente de um pai vermelho. Uma folha que estava em um nível X antes da absorção poderá está no nível X-N (N sendo o número de nós vermelhos que foram absorvidos no caminho dessa folha até a raiz).
+        </p>
+        <h1>
+            Q3: É possível colorir os nós de uma árvore AVL T com cores vermelha e preta de modo que T se torne uma árvore rubro-negra? Em caso afirmativo, explique como e apresente um algoritmo; caso contrário, apresente um contraexemplo.
+        </h1>
+        <p>
+            <img src="imagem 03.jpg" alt="" width="650px">
+            <br>
+        </p>
+    </div>
+</body>
+</html>

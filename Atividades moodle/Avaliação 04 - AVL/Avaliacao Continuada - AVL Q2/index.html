@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliacao Continuada - AVL Q1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="fakebody">
+    <h1>Detalhar o algoritmo de exclusão de nós em árvores AVL</h1>
+    <h2>A remoção em si:</h2>
+    <p>
+        O primeiro passo é percorrer a árvore a procura do nó, caso esse nó seja nulo ou não esteja na árvore, não há o que fazer, pois o nó não existe naquela árvore.
+        <br>
+        Caso contrario, este nó está na árvore e precisa ser removido. Então, dividimos em dois casos.
+        <ul>
+            <li>
+                Caso 1:
+            </li>
+            <p>
+                Caso o nó encontrado não tenha filho direito fazemos apenas com que o seu pai ligue-se com seu filho esquerdo (seja ele nulo ou não) e deletamos o nó.
+                <br>
+                Neste caso, todos os ancestrais do nó removido até a raiz devem ter sua altura atualizada e podem precisar de balanceamento ou não através de rotação.
+                <br>
+                <img src="Primeira imagem.jpg" alt="" width="350px" class="image">
+                <br>
+                Em vermelho temos o nó encontrado, em azul temos a atualização do ponteiro do seu pai e em rosa temos a destruição do nó em sí.
+
+            </p>
+            <li>
+                Caso 2:
+            </li>
+            <p>
+                Caso o nó tenha filho direito, buscamos o nó sucessor na subárvore direita, trocamos o seu valor com o nó a ser deletado e por fim, deletamos o nó sucessor.
+                <br>
+                Neste caso, todo ancestral do nó <strong>FISICAMENTE</strong> removido deve ter sua altura atualizada e podem precisar de balanceamento ou não através de rotação.
+                <br>
+                <img src="Segunda imagem.jpg" alt="" width="350px" class="image">
+                <br>
+                Em vermelho temos o nó encontrado, em azul temos o sucessor e a atualização com o nó encontrado e em rosa temos a destruição do nó sucessor.
+            </p>
+        </ul>
+    </p>
+    <h2>Analise do balanceamento da árvore após a remoção de um nó</h2>
+    <p>
+        Primeiro é muito importante entender que os únicos que podem ter sua altura alterada são os nós que formam o caminho do nó deletado até a raiz, ou seja, os ancestrais do nó <strong>FISICAMENTE</strong> removido.
+        <br>
+        Agora iremos analisar o que acontece com o balanceamento de um nó P quando um nó X é removido na subárvore direita de P.
+        <br>
+        <strong>Sem perda de generalidade, o lado esquerdo se analisa de forma simétrica a esta.</strong>
+        <br>
+        <ul>
+            <li>
+                Caso 1: as subárvores de P tinha alturas iguais.
+                <p>
+                    <img src="Terceira imagem.jpg" alt="" width="350px" class="image"> <img src="Terceira imagem (b).jpg" alt="" width="350px" class="image">
+                    <br>
+                    Aqui tanto faz o lado que a remoção acontecerá, o balanceamento de P irá varia entre 1 ou -1.
+                    Note que após a remoção do nó X, o fator balanceamento de P será -1, mas a sua altura se manterá sendo h+1, o que nos diz que nenhum balanceamento será necessário caso P tenha um pai.
+                </p>
+            </li>
+            <li>
+                Caso 2: P tem balanço = +1 e a remoção é na subárvore direita.
+                <p>
+                    <img src="Quarta imagem.jpg" alt="" width="350px" class="image"> <img src="Quarta imagem (b).jpg" alt="" width="350px" class="image">
+                    <br>
+                    Note que após a remoção de X, o fator balanceamento de P = 0 e sua altura diminuiu em 1, o que pode tornar algum ancestral desbalanceado, fazendo assim que talvez seja necessário um rebalanceamento futuro em algum possível pai.
+                </p>
+            </li>
+            <li>
+                Caso 3: P tem balanço = -1 e a remoção é na subárvore direita.
+                <p>
+                    <img src="Quinta imagem.jpg" alt="" width="350px" class="image">
+                    <br>
+                    Neste caso, há mais 3 subcasos a analisar dependendo do balanceamento do filho esquerdo de P.
+                    <ul>
+                        <li>
+                            Caso 3(a): O filho esquerdo de P tem balanceamento = 0.
+                            <p>
+                                <img src="Quinta imagem (caso 1).jpg" alt="" width="350px" class="image"> 
+                                <br>
+                                Ao remover o nó X, o balanceamento de P será = -2, fazendo necessário uma rotação simples a direita.
+                                <br>
+                                <img src="Quinta imagem (caso 1 a).jpg" alt="" width="350px" class="image">
+                                <br>
+                                Note que a altura final da árvore não alterou (era h+2 e se manteve h+2 após a rotação) o que implica que nenhuma rotação em um possível pai de B será necessário futuramente.
+                            </p>
+                        </li>
+                        <li>
+                            Caso 3(b): O filho esquerdo de P tem balanceamento = -1.
+                            <p>
+                                <img src="Quinta imagem (caso 2).jpg" alt="" width="350px" class="image">
+                                <br>
+                                Ao remover o nó X, o balanceamento de P será = -2, fazendo necessário uma rotação simples a direita em P.
+                                <br>
+                                <img src="Quinta imagem (caso 2 a).jpg" alt="" width="350px" class="image">
+                                <br>
+                                Note que a altura final da árvore foi alterada (antes era h+2 e após a rotação é h+1) o que implica que algum ancestral dessa árvore possa necessitar de rotação futura.
+                            </p>
+                        </li>
+                        <li>
+                            Caso 3(c): O filho esquerdo de P tem balanceamento = +1.
+                            <p>
+                                <img src="Quinta imagem (caso 3).jpg" alt="" width="350px" class="image">
+                                <br>
+                                Para B ter balanço = +1 sua subárvore direita deve ser maior que a subarvore esquerda, mas eu não consigo dizer exatemente qual o balanço do primeiro filho direito de B (neste caso C), a única coisa possível de se inferir é que algum dos filhos de C tem altura = h-1. Ao remover o nó X, o balanceamento de P será = -2. Fazendo necessário uma rotação dupla a direita. (Rotação esquerda em B + Rotação direita em P).
+                                <br>
+                                <img src="Quinta imagem (caso 3 a).jpg" alt="" width="350px" class="image"> <img src="Quinta imagem (caso 3 b).jpg" alt="" width="350px" height="300px" class="image">
+                                <br>
+                                Note que a altura final da árvore foi alterada (antes era h+2 e após as rotações é h+1) o que implica que algum ancestral dessa árvore possa necessitar de rotação futura.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </li>
+        </ul>
+    </p>
+</div>
+</body>
+</html>

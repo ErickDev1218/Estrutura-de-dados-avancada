@@ -1,0 +1,20 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: skyblue;
+}
+
+div{
+    background-color: white;
+    margin: 10px 25% 10px 25%;
+    padding: 10px 2% 2% 2%;
+    box-shadow: 5px 5px 10px black;
+}
+img{
+    box-shadow: 2px 2px 3px black;
+    padding: 1%;
+    margin: 5px 0px 5px 0px;
+}
+
+.vazou{
+    width: 100%;
+}

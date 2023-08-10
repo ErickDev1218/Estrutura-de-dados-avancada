@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Imagens-css/style.css">
+    <title>Leia-me</title>
+</head>
+<body>
+    <div>
+    <h1>Como compilar meu programa:</h1>
+    <p>
+        Eu desenvolvi o programa usando VsCode junto ao terminal WSL, para que ficasse o mais próximo possivel do que o professor usa em sua máquina.
+    <br>
+        Os arquivos que o serão recebidos pelo professor são: avl.hpp, cpf.hpp, data.csv, date.hpp, main.cpp, node.hpp, pessoa.hpp e a descrição do projeto. Segue imagem abaixo:
+        <br>
+        <img src="Imagens-css/Img1.jpg" alt="Imagem dos arquivos">
+    
+    <br>
+        Para compilar o programa, abra o terminal integrado e use o código: <strong>g++ main.cpp -o run ; ./run</strong>
+        <br>
+        <img src="Imagens-css/Img2.jpg" alt="Imagem do código para compilação no terminal">
+        <br>
+        Após isso, será criado um arquivo com nome <strong>run</strong>
+        <br>
+        <img src="Imagens-css/Img3.jpg" alt="Imagem dos arquivos com run">
+        <br>
+        O programa deve ser iniciado automaticamente apresentendo a seguinte tela:
+        <br>
+        <img src="Imagens-css/Img4.jpg" alt="Menu do programa">
+        <br>
+        Neste momento, o programa espera receber um valor númerico entre os listados.
+        <br>
+        Digitando 1 será iniciado a busca por <strong>CPF</strong>. Neste momento, o programa espera receber uma string no formato padrão de <strong>CPF</strong>. Ex: 000.000.000-00
+        <br>
+        <img src="Imagens-css/Img5.jpg" alt="Busca por cpf">
+        <br>
+        Caso o <strong>CPF</strong> esteja cadastrado, será mostrado o CPF, nome, sobrenome, data de nascimento e cidade natal.
+        <br>
+        <img src="Imagens-css/Img6.jpg" alt="Exemplo de cpf valido">
+        <br>
+        Caso o <strong>CPF</strong> não esteja cadastrado, o programa dirá que não há ninguém com este <strong>CPF</strong>.
+        <br>
+        Após a tentativa de busca de CPF, o programa voltará ao menu principal e aguardará novamente um valor númerico. 
+        <br>
+        Digitando 2 será iniciado a busca por <strong>NOME</strong>.
+        <br>
+        <img src="Imagens-css/Img7.jpg" alt="SubMenu nome">
+        <br>
+        Neste momento o programa aguarda um novo inteiro. Ao digitar 1, o programa esperará receber um <strong>NOME</strong> para fazer a busca na árvore. Caso haja mais de uma pessoa com este <strong>NOME</strong> será mostrado todas estas pessoas. Vale lembrar também que o programa é case sensitive, ou seja, "Atilio" é diferente "atilio".
+        <br>
+        <img src="Imagens-css/Img8.jpg" alt="Busca por nome">
+        <br>
+        Após a tentativa de busca de nome, o programa voltará ao menu principal e aguardará novamente um valor númerico.
+        <br>
+        Mas caso você esteja no menu anterior e digitou 2, o programa esperará receber uma substring para pesquisar <strong>TODAS</strong> as pessoas cujo o nome inicie com a substring. O fato do programa ser case sensitive se aplica aqui também.
+        <br>
+        <img src="Imagens-css/Img9.jpg" alt="Busca por substring">
+        <br>
+        Voltamos ao menu principal. Ao digitar 3, o programa iniciará a busca por <strong>data de nascimento</strong>
+        <br>
+        <img src="Imagens-css/Img10.jpg" alt="SubMenu DN">
+        <br>
+        Neste momento aguarda um novo inteiro. Ao digitar 1, o programa esperará receber uma <strong>data de nascimento</strong> no formato 00/00/0000.
+        <br>
+        <img src="Imagens-css/Img11.jpg" alt="Busca por data de nascimento">
+        <br>
+        Após a tentativa de busca pela data de nascimento, o programa voltará ao menu principal e aguardará novamente um valor númerico.
+        <br>
+        Mas caso você esteja no menu anterior e digitou 2, o programa esperará receber duas <strong>datas de nascimento</strong>, neste momento é importante que o usuário digite a menor data de nascimento primeiro e a maior depois.
+        <br>
+        <img src="Imagens-css/Img12.jpg" alt="Busca por intervalor" class="vazou">
+        <br>
+        Voltamos ao menu principal. Ao digitar 4, o programa esperará receber uma string para que possa mostrar uma das árvores.
+        <br>
+        <img src="Imagens-css/Img13.jpg" alt="Printar árvores">
+        <br>
+        Neste exemplo eu digitei "Nome". Após mostrar a árvore, o programa diz quantos nós há na árvore. Segue trecho da amostra.
+        <br>
+        <img src="Imagens-css/Img14.jpg" alt="Árvore printada">
+        <br>
+        Voltamos ao menu principal. Ao digitar 5 o programa mostrará o menu novamente e ao digitar 999 o programa encerrará.
+        <br>
+    </p>
+    </div>
+</body>
+</html>
